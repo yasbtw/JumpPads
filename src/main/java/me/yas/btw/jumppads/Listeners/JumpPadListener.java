@@ -1,8 +1,6 @@
 package me.yas.btw.jumppads.Listeners;
 
 import me.yas.btw.jumppads.Config;
-import me.yas.btw.jumppads.Utils.EffectSpawner;
-import me.yas.btw.jumppads.Utils.SoundPlayer;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,7 +28,8 @@ public class JumpPadListener implements Listener {
         if (conf.launchBlocks.contains(blockUnder.getType()) || conf.launchBlocks.contains(block.getType())) {
             getplugin().effectSpawner.spawnEffect(player,conf);
             getplugin().soundPlayer.playsound(player, conf);
-            if (conf.launchInWalkingDirection){moveDirection = event.getTo().toVector().subtract(event.getFrom().toVector());}else{moveDirection = player.getLocation().getDirection();}
+            if (conf.launchInWalkingDirection){moveDirection = event.getTo().toVector().subtract(event.getFrom().toVector());}
+            else{moveDirection = player.getLocation().getDirection();}
             moveDirection.setY(0).normalize();
             Vector velocity = moveDirection.multiply(conf.maxPower).setY(conf.maxPower/2.25);
             player.setVelocity(velocity);
