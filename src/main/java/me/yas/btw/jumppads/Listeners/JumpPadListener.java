@@ -15,8 +15,6 @@ import static me.yas.btw.jumppads.JumpPads.getplugin;
 public class JumpPadListener implements Listener {
 
     private final Config conf = getplugin().config;
-    private final EffectSpawner effectSpawner = new EffectSpawner();
-    private final SoundPlayer soundPlayer = new SoundPlayer();
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event){
         if (event.getTo() == null ||
@@ -30,8 +28,8 @@ public class JumpPadListener implements Listener {
         Block blockUnder = event.getTo().clone().subtract(0, 1, 0).getBlock();
         Vector moveDirection;
         if (conf.launchBlocks.contains(blockUnder.getType()) || conf.launchBlocks.contains(block.getType())) {
-            effectSpawner.spawnEffect(player,conf);
-            soundPlayer.playsound(player, conf);
+            getplugin().effectSpawner.spawnEffect(player,conf);
+            getplugin().soundPlayer.playsound(player, conf);
             if (conf.launchInWalkingDirection){moveDirection = event.getTo().toVector().subtract(event.getFrom().toVector());}else{moveDirection = player.getLocation().getDirection();}
             moveDirection.setY(0).normalize();
             Vector velocity = moveDirection.multiply(conf.maxPower).setY(conf.maxPower/2.25);
