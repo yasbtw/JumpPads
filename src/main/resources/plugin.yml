@@ -1,0 +1,6 @@
+name: JumpPads
+version: '${project.version}'
+main: me.yas.btw.jumppads.JumpPads
+commands:
+  jumppad:
+    usage: <command>

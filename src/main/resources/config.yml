@@ -1,0 +1,23 @@
+# Max power:
+maxPower: 3
+
+# Launch direction:
+# true: launched in the direction the player is walking.
+# false: launched in the direction the player is looking.
+launchInWalkingDirection: true
+
+# Enable sound effect:
+sound_enabled: true
+# Choose a sound to be played here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+sound: BAT_TAKEOFF
+
+# Enable launch effect:
+launchEffectEnabled: true
+# Choose an effect to be played here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Effect.html
+launchEffect: EXPLOSION_LARGE
+
+# List of blocks that are counted as Jump Pads
+Blocks:
+  - GOLD_BLOCK
+  - SLIME_BLOCK
+  - GOLD_PLATE
